@@ -33,9 +33,7 @@ const knightMoves = (start, end) => {
       break;
     };
 
-    console.log(true);
     let moves = getMoves(node.coords);
-
     moves.forEach((move) => {
       // If the queue already contains a node with the coordinates, skip adding it to the queue
       if (queue.find(item => item.coords[0] == move[0] && item.coords[1] == move[1])) return;
