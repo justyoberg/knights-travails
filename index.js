@@ -20,7 +20,14 @@ const getMoves = (location) => {
   return moves.filter((move) => move[0] >= 0 && move[0] < 8 && move[1] >= 0 && move[1] < 8);
 }
 
+const checkMoves = (array) => {
+  if (array.some(item => item < 0 || item > 7)) return false;
+  return true;
+}
+
 const knightMoves = (start, end) => {
+  // Make sure the coordinates are between 0 and 7
+  if (!checkMoves([start, end].flat())) return console.log("Coordinates must be between 0 and 7.");
 
   let currentSquare = new Square(start);
   let queue = [currentSquare];
@@ -48,7 +55,7 @@ const knightMoves = (start, end) => {
   };
 
   console.log(`You made it in ${path.length - 1} moves! Here's your path:`);
-  path.forEach((move) => console.log(move.coords));
+  path.forEach((move) => console.log(`[${move.coords[0]}, ${move.coords[1]}]`));
 };
 
-knightMoves([0, 0], [7, 7]);
+knightMoves([2, 1], [3, 1]);
