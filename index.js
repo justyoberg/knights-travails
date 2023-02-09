@@ -33,9 +33,9 @@ const knightMoves = (start, end) => {
       break
     };
     let moves = getMoves(node.coords);
-    console.log(moves);
     moves.forEach((move) => {
-      queue.push(new Square(move, node))});
+      queue.push(new Square(move, node))
+    });
   }
   
   let endNode = path[0];
