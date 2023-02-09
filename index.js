@@ -17,7 +17,7 @@ const getMoves = (location) => {
     [xPos - 2, yPos - 1],
     [xPos - 2, yPos + 1]
   ]
-  return moves.filter((move) => move[0] >= 0 && move[0] < 8 && move[1] >= 0 && move[1] < 8)
+  return moves.filter((move) => move[0] >= 0 && move[0] < 8 && move[1] >= 0 && move[1] < 8);
 }
 
 const knightMoves = (start, end) => {
@@ -30,10 +30,15 @@ const knightMoves = (start, end) => {
     let node = queue.shift();
     if (node.coords[0] === end[0] && node.coords[1] === end[1]) {
       path.push(node);
-      break
+      break;
     };
+
+    console.log(true);
     let moves = getMoves(node.coords);
+
     moves.forEach((move) => {
+      // If the queue already contains a node with the coordinates, skip adding it to the queue
+      if (queue.find(item => item.coords[0] == move[0] && item.coords[1] == move[1])) return;
       queue.push(new Square(move, node))
     });
   }
@@ -42,10 +47,10 @@ const knightMoves = (start, end) => {
   while (endNode.lastSquare !== null) {
     endNode = endNode.lastSquare;
     path.unshift(endNode);
-  }
+  };
 
   console.log(`You made it in ${path.length - 1} moves! Here's your path:`);
   path.forEach((move) => console.log(move.coords));
-}
+};
 
-knightMoves([0, 0], [6, 6]);
+knightMoves([0, 0], [7, 7]);
