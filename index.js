@@ -59,3 +59,24 @@ const knightMoves = (start, end) => {
 };
 
 knightMoves([2, 1], [3, 1]);
+// You made it in 3 moves! Here's your path:
+// [2, 1]
+// [3, 3]
+// [5, 2]
+// [3, 1]
+
+knightMoves([0, 0], [6, 7]);
+// You made it in 5 moves! Here's your path:
+// [0, 0]
+// [1, 2]
+// [0, 4]
+// [2, 5]
+// [4, 6]
+// [6, 7]
+
+knightMoves([5, 4], [1, 5]);
+// You made it in 3 moves! Here's your path:
+// [5, 4]
+// [4, 6]
+// [3, 4]
+// [1, 5]
