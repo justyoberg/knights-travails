@@ -6,7 +6,7 @@ class Square {
 }
 
 const getMoves = (location) => {
-  const [xPos, yPos] = location;
+  let [xPos, yPos] = location;
   const moves = [
     [xPos - 1, yPos + 2],
     [xPos + 1, yPos + 2],
@@ -17,7 +17,11 @@ const getMoves = (location) => {
     [xPos - 2, yPos - 1],
     [xPos - 2, yPos + 1]
   ]
-  return moves.filter((move) => move[0] >= 0 && move[0] < 8 && move[1] >= 0 && move[1] < 8);
+
+  return moves.filter((move) => move[0] >= 0 && 
+                                move[0] < 8 && 
+                                move[1] >= 0 && 
+                                move[1] < 8);
 }
 
 const checkMoves = (array) => {
